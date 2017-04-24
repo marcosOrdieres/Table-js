@@ -1,0 +1,7 @@
+[
+		{"number":"1","name":"Europe", "country":"Spain","capital":"Madrid","population":300},
+		{"number":"2","name":"America", "country":"Mexico","capital":"DF","population":3000000},
+		{"number":"3","name":"Asia", "country":"Indonesia","capital":"Jakarta","population":3000},
+		{"number":"4","name":"Africa", "country":"Congo","capital":"Congo","population":3000},
+		{"number":"5","name":"Oceany", "country":"Australia","capital":"Camberra","population":455465653}
+]

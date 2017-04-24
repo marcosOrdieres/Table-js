@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>This is A table Example</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <link rel="stylesheet" src="style.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+
+
+ <table class="table" id="table">
+    <thead>
+		<h1 align="center">This is an example of table with JS</h1><br><br>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+
+	<div id="nuum"></div>
+
+	<br><br>
+
+	<div class="row">
+		<div class="form-group">
+  		<div class="col-sm-3 col-md-3 col-lg-3">
+  			<p><strong>Filter the data in POPULATION:</strong></p>
+		</div>
+
+		<div class="col-sm-3 col-md-3 col-lg-3">
+			<select class="form-control" id="population">
+				  <option id="20" value="20">20</option>
+				  <option id="300000" value="300000">300000</option>
+				  <option id="400000" value="400000">400000</option>
+				  <option id="500000" value="500000">500000</option>
+			</select> 
+		</div>
+
+		<div class="col-sm-3 col-md-3 col-lg-3">
+			  <button type="button" class="btn btn-primary btn-lg" id="Filter">Filter the Data</button>
+		</div>
+			  <div class="col-sm-3 col-md-3 col-lg-3" id="filtered"></div>
+		</div>
+	</div>
+	<br><br>
+
+	<div class="row">
+		<div class="form-group">
+  		<div class="col-sm-3 col-md-3 col-lg-3">
+  			<p><strong>Continents Beggining with the LETTER: </strong></p>
+		</div>
+
+		<div class="col-sm-3 col-md-3 col-lg-3">
+		  	<select class="form-control" id="select">
+			    <option id="A" value="A">A</option>
+			    <option id="O" value="O">O</option>
+			    <option id="E" value="E">E</option>
+		  	</select>
+		</div>
+
+		<div class="col-sm-3 col-md-3 col-lg-3">
+			  <button type="button" class="btn btn-primary btn-lg" id="Find">Find the Continent</button>
+		</div>
+			  <div class="col-sm-3 col-md-3 col-lg-3" id="Found"></div>
+		</div>
+	</div>
+
+	<br><br>
+
+	<div class="row">
+		<div class="form-group">
+  		<div class="col-sm-3 col-md-3 col-lg-3">
+  			<p><strong>Sorting the DATA By: </strong></p>
+		</div>
+
+		<div class="col-sm-3 col-md-3 col-lg-3">
+		 	<select class="form-control" id="selectSort">
+			    <option id="name" value="name">Name</option>
+			    <option id="country" value="country">Country</option>
+			    <option id="capital" value="capital">Capital</option>
+		  	</select>
+		</div>
+
+		<div class="col-sm-3 col-md-3 col-lg-3">
+  	  		<button type="button" class="btn btn-primary btn-lg" id="Sort">Sort the Data</button></div>
+		</div>
+			  <div class="col-sm-3 col-md-3 col-lg-3" id="sort"></div>
+		</div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
