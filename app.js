@@ -14,105 +14,117 @@ function makeRequest(obj) {
                 }
             }
         };
-        httpRequest.open(obj.method || "GET", obj.mock, true);
+        httpRequest.open(obj.method || 'GET', obj.mock, true);
         httpRequest.send(obj.body);
     });
 }
  
-function suficienteGrande(valueTamanyo) {
-    return valueTamanyo > document.getElementById("population").value;
-}
+class Table {
+    constructor(options) {
+        this.titles = options.titles;
+        this.fields = options.fields;
  
-function searchString(searched) {
-    return searched = document.getElementById("search-text").value;
-}
-
-function createTable(arrayModel, titles, fields) {
-    const table = document.getElementById("table");
-    table.innerHTML = "";
-
-    const thead = table.createTHead();
+        this.createEvents();
+    }
  
-    const tr = thead.insertRow();
+    create(modelData) {
+        this.model = this.model || modelData;
  
-    titles.forEach(function (title) {
-        const th = tr.insertCell();
-        th.innerHTML = "<b>" + title + "</b>";
-    });
+        const table = document.getElementById('table');
+        table.innerHTML = '';
  
-    const tbody = table.createTBody();
- 
-    arrayModel.forEach(function (model) {
+        const thead = table.createTHead();
+     
         const tr = thead.insertRow();
- 
-        fields.forEach(function (field) {
-            const td = tr.insertCell();
-            td.innerHTML = model[field];
+     
+        this.titles.forEach((title) => {
+            const th = tr.insertCell();
+            th.innerHTML = '<b>' + title + '</b>';
         });
-    });
-}
+     
+        const tbody = table.createTBody();
+     
+        modelData.forEach((model) => {
+            const tr = thead.insertRow();
+     
+            this.fields.forEach((field) => {
+                const td = tr.insertCell();
+                td.innerHTML = model[field];
+            });
+        });
+    }
  
-makeRequest({
-    mock: "mock.json"
-})
-.then((myArr) => {
-    const titles = ["Number", "Continent", "Country", "Capital", "Population"];
-    const fields = ["number", "continent", "country", "capital", "population"];
+    createEvents() {
+        const find = document.getElementById('find');
+        const filter = document.getElementById('filter');
+        const sortBut = document.getElementById('sort-but');
+        const searchBut = document.getElementById('search-but');
  
-    createTable(myArr, titles, fields);
-    function findData(event) {
-        const select = document.getElementById("select");
-        const found = document.getElementById("found");
+        find.addEventListener('click', this.findData.bind(this));
+        filter.addEventListener('click', this.filterData.bind(this));
+        sortBut.addEventListener('click', this.sortData.bind(this));
+        searchBut.addEventListener('click', this.searchData.bind(this));
+    }
  
-        const namesFind = myArr.map((row) => row.country).filter((country) => country[0] === select.value);
+    findData(event) {
+        const select = document.getElementById('select');
+        const found = document.getElementById('found');
+ 
+        const namesFind = this.model.map((row) => row.country).filter((country) => country[0] === select.value);
  
         found.innerHTML = namesFind;
-    };
-
-    function filterData(event) {
-        const arrayNameFilter = myArr.map((element) => element.population);
+    }
  
-        const filtered = arrayNameFilter.filter(suficienteGrande);
+    filterData(event) {
+        const arrayNameFilter = this.model.map((element) => element.population);
+ 
+        const population = document.getElementById('population');
+        const filteredElement = document.getElementById('filtered');
+ 
+        const filtered = arrayNameFilter.filter((size) => size > population.value);
        
-        if (arrayNameFilter.every(suficienteGrande)) {
-            alert("Todos son Países Grandes.")
+        if (arrayNameFilter.every((size) => size > population.value)) {
+            alert('Todos son Países Grandes.')
         } else {
-            alert("NO todos son Países Grandes.")
+            alert('NO todos son Países Grandes.')
         }
  
-        filtered = document.getElementById("filtered").innerHTML;
-    };
-
-    function sortData(event) {
-        const selectSort = document.getElementById("select-sort");
+        filteredElement.innerHTML = filtered;
+    }
  
-        const arrayName = myArr.map((element) => element[selectSort.value]);
+    sortData(event) {
+        const selectSort = document.getElementById('select-sort');
+        const sortElement = document.getElementById('sort');
+ 
+        const arrayName = this.model.map((element) => element[selectSort.value]);
  
         const sorted = arrayName.sort();
-        document.getElementById("sort").innerHTML = sorted;
-    };
+        sortElement.innerHTML = sorted;
+    }
 
-    function searchData(event) {
-        const arrFinal = [];
-        myArr.forEach((valueA) => {
-                const strObj = String(Object.values(valueA));
-                if (strObj.indexOf(searchString()) > -1) {
-                    return arrFinal.push(valueA);
-                }
-        });
-        
-        createTable(arrFinal,titles, fields);
-    };
+    searchData(event) {
+       const searchText = document.getElementById('search-text');
+       
+       const filteredSearch = this.model.filter((row) => {
+           const keys = Object.keys(row);
+           return Object.keys(row).some((key) => row[key].toString().indexOf(searchText.value) > -1);
+       });
 
-    document.getElementById("find").addEventListener("click",findData, false);
+       this.create(filteredSearch);
+    }
+}
  
-    document.getElementById("filter").addEventListener("click",filterData,false);
-
-    document.getElementById("sort-but").addEventListener("click",sortData,false);
-
-    document.getElementById("search-but").addEventListener("click",searchData,false);
+const table = new Table({
+    titles: ['Number', 'Continent', 'Country', 'Capital', 'Population'],
+    fields: ['number', 'continent', 'country', 'capital', 'population']
+});
+ 
+makeRequest({
+    mock: 'mock.json'
+})
+.then((myArr) => {
+    table.create(myArr);
 })
 .catch((reason) => {
     console.log('Handle rejected promise (' + reason + ') here.');
 });
- 
