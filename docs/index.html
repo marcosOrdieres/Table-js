@@ -19,6 +19,26 @@
     <thead>
 		<h1 align="center">This is an example of table with JS</h1><br><br>
     </thead>
+
+	<br><br>
+
+	<div class="row">
+		<div class="form-group">
+	  		<div class="col-sm-3 col-md-3 col-lg-3">
+	  			<p><strong>Search the DATA By: </strong></p>
+			</div>
+
+			<div class="input-group col-sm-3 col-md-3 col-lg-3">
+			  <input id="search-text" type="text" class="form-control" placeholder="Search..." aria-describedby="basic-addon2">
+			  <span class="input-group-addon glyphicon glyphicon-search" id="basic-addon2"></span>
+			</div>
+
+			<div class="col-sm-3 col-md-3 col-lg-3">
+	  	  		<button type="button" class="btn btn-primary btn-lg" id="search-but">Search...</button>
+	  	  	</div>
+		</div>
+			  <div class="col-sm-3 col-md-3 col-lg-3" id="search"></div>
+	</div>
     <tbody>
 
     </tbody>
@@ -36,15 +56,18 @@
 
 		<div class="col-sm-3 col-md-3 col-lg-3">
 			<select class="form-control" id="population">
-				  <option id="20" value="20">20</option>
-				  <option id="300000" value="300000">300000</option>
-				  <option id="400000" value="400000">400000</option>
-				  <option id="500000" value="500000">500000</option>
+				<option id="0.2" value="0.2">0.2 millions</option>
+				<option id="0.5" value="0.5">0.5 millions</option>
+				<option id="1" value="1">1 millions</option>
+				<option id="2" value="2">2 millions</option>
+				<option id="3" value="3">3 millions</option>
+				<option id="4" value="4">4 millions</option>
+				<option id="5" value="5">5 millions</option>
 			</select> 
 		</div>
 
 		<div class="col-sm-3 col-md-3 col-lg-3">
-			  <button type="button" class="btn btn-primary btn-lg" id="Filter">Filter the Data</button>
+			  <button type="button" class="btn btn-primary btn-lg" id="filter">Filter the Data</button>
 		</div>
 			  <div class="col-sm-3 col-md-3 col-lg-3" id="filtered"></div>
 		</div>
@@ -54,21 +77,27 @@
 	<div class="row">
 		<div class="form-group">
   		<div class="col-sm-3 col-md-3 col-lg-3">
-  			<p><strong>Continents Beggining with the LETTER: </strong></p>
+  			<p><strong>Countries Beginning with the LETTER: </strong></p>
 		</div>
 
 		<div class="col-sm-3 col-md-3 col-lg-3">
 		  	<select class="form-control" id="select">
-			    <option id="A" value="A">A</option>
-			    <option id="O" value="O">O</option>
+		  		<option id="A" value="A">A</option>
+			    <option id="S" value="S">S</option>
+			    <option id="M" value="M">M</option>
 			    <option id="E" value="E">E</option>
+				<option id="C" value="C">C</option>
+			    <option id="N" value="N">N</option>
+			    <option id="I" value="I">I</option>			   
+			    <option id="G" value="G">G</option>
+			    <option id="T" value="T">T</option>			   
 		  	</select>
 		</div>
 
 		<div class="col-sm-3 col-md-3 col-lg-3">
-			  <button type="button" class="btn btn-primary btn-lg" id="Find">Find the Continent</button>
+			  <button type="button" class="btn btn-primary btn-lg" id="find">Find the Country</button>
 		</div>
-			  <div class="col-sm-3 col-md-3 col-lg-3" id="Found"></div>
+			  <div class="col-sm-3 col-md-3 col-lg-3" id="found"></div>
 		</div>
 	</div>
 
@@ -81,18 +110,19 @@
 		</div>
 
 		<div class="col-sm-3 col-md-3 col-lg-3">
-		 	<select class="form-control" id="selectSort">
-			    <option id="name" value="name">Name</option>
+		 	<select class="form-control" id="select-sort">
+			    <option id="continent" value="continent">Continent</option>
 			    <option id="country" value="country">Country</option>
 			    <option id="capital" value="capital">Capital</option>
 		  	</select>
 		</div>
 
 		<div class="col-sm-3 col-md-3 col-lg-3">
-  	  		<button type="button" class="btn btn-primary btn-lg" id="Sort">Sort the Data</button></div>
+  	  		<button type="button" class="btn btn-primary btn-lg" id="sort-but">Sort the Data</button></div>
 		</div>
 			  <div class="col-sm-3 col-md-3 col-lg-3" id="sort"></div>
 		</div>
+
 </div>
 
 <script src="app.js"></script>

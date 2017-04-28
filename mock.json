@@ -1,7 +1,12 @@
 [
-		{"number":"1","name":"Europe", "country":"Spain","capital":"Madrid","population":300},
-		{"number":"2","name":"America", "country":"Mexico","capital":"DF","population":3000000},
-		{"number":"3","name":"Asia", "country":"Indonesia","capital":"Jakarta","population":3000},
-		{"number":"4","name":"Africa", "country":"Congo","capital":"Congo","population":3000},
-		{"number":"5","name":"Oceany", "country":"Australia","capital":"Camberra","population":455465653}
+		{"number":"1","continent":"Europe", "country":"Spain","capital":"Madrid","population":3.166},
+		{"number":"2","continent":"America", "country":"Mexico","capital":"DF","population":8.851},
+		{"number":"3","continent":"Asia", "country":"Indonesia","capital":"Jakarta","population":10},
+		{"number":"4","continent":"Africa", "country":"Congo","capital":"Kinshasa","population":10.12},
+		{"number":"5","continent":"Oceany", "country":"Australia","capital":"Camberra","population":0.355},
+		{"number":"6","continent":"Europe", "country":"Germany","capital":"Berlin","population":3.7},
+		{"number":"7","continent":"America", "country":"Ecuador","capital":"Quito","population":3},
+		{"number":"8","continent":"Asia", "country":"Sri Lanka","capital":"Colombo","population":0.752},
+		{"number":"9","continent":"Africa", "country":"Tanzania","capital":"Dodoma","population":2.084},
+		{"number":"10","continent":"Oceany", "country":"New Zealand","capital":"Auckland","population":1.377}
 ]
